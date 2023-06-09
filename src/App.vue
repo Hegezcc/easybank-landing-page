@@ -8,15 +8,8 @@ import ArticleSection from './components/ArticleSection.vue';
 
 <template>
 <Header></Header>
-
 <Hero></Hero>
-
 <ArticleSection></ArticleSection> 
-
 <WhySection></WhySection>
-
 <Footer></Footer>
 </template>
-
-<style scoped>
-</style>
