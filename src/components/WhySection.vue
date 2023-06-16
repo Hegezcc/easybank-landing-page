@@ -36,15 +36,19 @@ import IconApi from '@/assets/images/icon-api.svg';
     </SectionBase>
 </template>
 <style scoped lang="scss">
-section {
-    text-align: center;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
+@use '@/assets/base.scss' as *;
 p {
     color: var(--grayish-blue);
+}
+
+@media screen and (min-width: $desktop-min) {
+    .content > p {
+        width: 60%;
+    }
+
+    .items {
+        display: flex;
+        gap: 2rem;
+    }
 }
 </style>

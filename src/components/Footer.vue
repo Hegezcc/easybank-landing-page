@@ -22,18 +22,20 @@ import InviteButton from './InviteButton.vue'
         <li><a href="#">Support</a></li>
         <li><a href="#">Privacy Policy</a></li>
       </ul>
-      <InviteButton />
     </nav>
-    <p class="copy">© Easybank. All Rights Reserved</p>
+    <div class="bottom">
+      <InviteButton />
+      <p class="copy">© Easybank. All Rights Reserved</p>
+    </div>
   </footer>
 </template>
 <style scoped lang="scss">
+@use '@/assets/base.scss' as *;
 
 footer {
   background-color: var(--dark-blue);
   color: var(--white);
   padding: 2rem;
-  text-align: center;
   font-size: 0.8rem;
 
   a {
@@ -66,4 +68,26 @@ li {
   color: var(--grayish-blue);
 }
 
+@media screen and (min-width: $desktop-min) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .links {
+    display: flex;
+    height: 7rem;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .bottom {
+    text-align: right;
+  }
+
+}
 </style>

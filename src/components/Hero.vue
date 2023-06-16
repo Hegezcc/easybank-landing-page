@@ -45,7 +45,6 @@ import MockupImage from '@/assets/images/image-mockups.png'
 .content {
     margin: -3rem 0 5rem 0;
     padding: 0 1rem;
-    text-align: center;
 
     p {
         color: var(--grayish-blue);
@@ -56,21 +55,31 @@ import MockupImage from '@/assets/images/image-mockups.png'
 
 @media screen and (min-width: $desktop-min) {
     .image {
-        background: url('@/assets/images/bg-intro-desktop.svg') no-repeat left bottom;
-        background-size: cover;
-        padding-left: 5rem;
+        background: url("/src/assets/images/bg-intro-desktop.svg") 12% 85%/90vw no-repeat;
+        width: 50vw;
+        height: 50vw;
+        position: absolute;
+        right: 0;
+        z-index: 1;
 
         img {
-            margin: -15% 0 0 0;
+            margin: 0;
+            position: relative;
+            top: -9%;
+            right: -17%;
         }
     }
 
     .container {
         flex-direction: row;
+        min-height: 50vw;
+        align-items: center;
     }
 
     .content {
         text-align: left;
+        width: calc(50% - 5rem);
+        margin: 0;
     }
 }
 </style>

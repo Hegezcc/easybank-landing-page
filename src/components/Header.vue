@@ -3,13 +3,18 @@ import { ref } from 'vue'
 import InviteButton from './InviteButton.vue'
 
 const navOpen = ref(false)
+let lastOpen = null;
 
 const toggleNav = () => {
-    navOpen.value = !navOpen.value
+    // Use lastOpen timestamp to prevent multi clicks with 100ms limiter
+    if (lastOpen === null || lastOpen < Date.now() - 100) {
+        lastOpen = Date.now();
+        navOpen.value = !navOpen.value;
+    }
 }
 </script>
 <template>
-    <header :class="{'active': navOpen}">
+    <header :class="{'active': navOpen}" id="header">
         <img src="@/assets/images/logo.svg" alt="Easybank" />
         <nav>
             <ul>
@@ -26,14 +31,21 @@ const toggleNav = () => {
         </button>
         <InviteButton />
     </header>
+    <div class="header-space"></div>
+    <div class="nav-closer" v-if="navOpen" @click.prevent="toggleNav"></div>
 </template>
 
 <style scoped lang="scss">
 @use '@/assets/base.scss' as *;
 
 header {
-    position: relative;
+    position: fixed;
     display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    z-index: 11;
     background-color: var(--white);
     color: var(--dark-blue);
     justify-content: space-between;
@@ -46,16 +58,17 @@ header {
         right: 0;
         bottom: 0;
         background: var(--white);
-        z-index: 2;
+        z-index: 12;
     }
 
     & > * {
-        z-index: 2;
+        z-index: 12;
         margin: 1rem;
     }
 
     img {
         flex: 0 0 auto;
+        margin: auto 1rem;
     }
 
     .invite-button {
@@ -64,10 +77,19 @@ header {
 
     .nav-icon {
         display: block;
-        padding: 0;
+        padding: 1rem;
+        margin: 0;
         font-size: 1rem;
         border: none;
         background: none;
+        height: 3rem;
+
+        img {
+            width: 1.3rem;
+            height: 1rem;
+            object-fit: contain;
+            margin: 0;
+        }
     }
 
     nav {
@@ -82,13 +104,12 @@ header {
         margin: 1rem;
         border-radius: 0.25rem;
         box-shadow: 0 0 10rem var(--dark-blue);
-        z-index: 1;
+        z-index: 11;
 
         a {
             display: block;
             color: var(--dark-blue);
             text-decoration: none;
-            text-align: center;
             padding: 0.5rem;
         }
     }
@@ -99,8 +120,22 @@ header {
     }
 }
 
+.header-space {
+    height: 3rem;
+}
+
+.nav-closer {
+    position: fixed;
+    z-index: 11;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 3rem;
+}
+
 @media screen and (min-width: $desktop-min) {
     header {
+        height: 5rem;
         .nav-icon {
             display: none;
         }
@@ -109,11 +144,11 @@ header {
             position: static;
             display: block;
             opacity: 1;
-            margin: 1rem 0 0 0;
+            margin: 0;
             padding: 0;
             border-radius: 0.25rem;
             box-shadow: none;
-            z-index: 2;
+            z-index: 12;
 
             ul {
                 display: flex;
@@ -121,6 +156,8 @@ header {
 
                 li {
                     position: relative;
+                    display: flex;
+                    align-items: center;
 
                     &::before {
                         content: '';
@@ -153,6 +190,14 @@ header {
         .invite-button {
             display: block;
         }
+    }
+
+    .header-space {
+        height: 5rem;
+    }
+
+    .nav-closer {
+        display: none;
     }
 }
 

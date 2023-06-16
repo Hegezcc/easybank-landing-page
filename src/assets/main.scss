@@ -6,6 +6,7 @@ body {
   line-height: 1.6;
   font-weight: normal;
   margin: 0;
+  text-align: center;
 }
 
 ul {
@@ -24,11 +25,21 @@ h1, h2, h3 {
   line-height: 1.2;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 a {
   color: var(--dark-blue);
   text-decoration: none;
 
   &:hover, &:active {
       color: var(--lime-green);
+  }
+}
+
+@media screen and (min-width: $desktop-min) {
+  body {
+    text-align: left;
   }
 }
