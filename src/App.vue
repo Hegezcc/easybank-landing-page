@@ -4,6 +4,7 @@ import Footer from './components/Footer.vue'
 import WhySection from './components/WhySection.vue';
 import Hero from './components/Hero.vue';
 import ArticleSection from './components/ArticleSection.vue';
+import Attribution from './components/Attribution.vue';
 </script>
 
 <template>
@@ -12,4 +13,5 @@ import ArticleSection from './components/ArticleSection.vue';
     <WhySection></WhySection>
     <ArticleSection></ArticleSection> 
     <Footer></Footer>
+    <Attribution></Attribution>
 </template>

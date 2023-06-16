@@ -25,11 +25,6 @@ import InviteButton from './InviteButton.vue'
       <InviteButton />
     </nav>
     <p class="copy">© Easybank. All Rights Reserved</p>
-
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </div>
   </footer>
 </template>
 <style scoped lang="scss">
@@ -37,6 +32,9 @@ import InviteButton from './InviteButton.vue'
 footer {
   background-color: var(--dark-blue);
   color: var(--white);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
 
   a {
     color: var(--white);
@@ -47,13 +45,25 @@ footer {
   }
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+ul {
+  margin: 1rem 0;
+}
 
-  a {
-    color: hsl(228, 45%, 44%);
-  }
+li {
+  margin: 0.5rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+}
+
+.invite-button {
+  margin: 1rem 0;
+}
+
+.copy {
+  color: var(--grayish-blue);
 }
 
 </style>

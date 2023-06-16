@@ -39,15 +39,6 @@ article {
     h2 {
         margin: 0 2rem;
         font-size: 1rem;
-
-        a {
-            color: var(--dark-blue);
-            text-decoration: none;
-
-            &:hover, &:active {
-                color: var(--lime-green);
-            }
-        }
     }
 
     .body {
