@@ -1,0 +1,42 @@
+@use 'sass:color';
+
+$mobile-min: 375px;
+$desktop-min: 720px;
+$desktop-max: 1440px;
+$content-width: 1100px;
+
+$dark-blue: hsl(233, 26%, 24%);
+$lime-green: hsl(136, 65%, 51%);
+$bright-cyan: hsl(192, 70%, 51%);
+$grayish-blue: hsl(233, 8%, 62%);
+$light-grayish-blue: hsl(220, 16%, 96%);
+$very-light-gray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+:root {
+
+  --mobile-min: #{$mobile-min};
+  --desktop-min: #{$desktop-min};
+  --desktop-max: #{$desktop-max};
+
+  --dark-blue: #{$dark-blue};
+  --lime-green: #{$lime-green};
+  --bright-cyan: #{$bright-cyan};
+  --grayish-blue: #{$grayish-blue};
+  --light-grayish-blue: #{$light-grayish-blue};
+  --very-light-gray: #{$very-light-gray};
+  --white: #{$white};
+
+  --primary: #{$lime-green};
+  --main-gradient: linear-gradient(135deg, #{$lime-green} 0%, #{$bright-cyan} 100%);
+  --light-gradient: linear-gradient(135deg, #{color.adjust($lime-green, $lightness: 20%)} 0%, #{color.adjust($bright-cyan, $lightness: 20%)} 100%);
+
+  color: #{$dark-blue};
+  background: #{$white};
+
+  font-size: 18px;
+  font-family: 'Public Sans', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

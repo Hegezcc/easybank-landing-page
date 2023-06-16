@@ -35,3 +35,16 @@ import IconApi from '@/assets/images/icon-api.svg';
         </div>
     </SectionBase>
 </template>
+<style scoped lang="scss">
+section {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    color: var(--grayish-blue);
+}
+</style>

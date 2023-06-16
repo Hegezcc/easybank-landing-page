@@ -1,31 +1,76 @@
 <script setup>
 import InviteButton from './InviteButton.vue'
+import SectionBase from './SectionBase.vue'
 import MockupImage from '@/assets/images/image-mockups.png'
 </script>
 <template>
-    <div class="container">
-        <div class="content">
-            <h1>Next generation digital banking</h1>
-            <p>
-                Take your financial life online. Your Easybank account will be a one-stop-shop 
-                for spending, saving, budgeting, investing, and much more.
-            </p>
-            <InviteButton></InviteButton>
+    <SectionBase :padded="false">
+        <div class="container">
+            <div class="content">
+                <h1>Next generation digital banking</h1>
+                <p>
+                    Take your financial life online. Your Easybank account will be a one-stop-shop 
+                    for spending, saving, budgeting, investing, and much more.
+                </p>
+                <InviteButton></InviteButton>
+            </div>
+            <div class="image">
+                <img :src="MockupImage" alt="Mockups" />
+            </div>
         </div>
-        <div class="image">
-            <img :src="MockupImage" alt="Mockups" />
-        </div>
-    </div>
+    </SectionBase>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '@/assets/base.scss' as *;
+
 .image {
-    background: url('@/assets/images/bg-intro-mobile.svg') no-repeat;
+    position: relative;
+    background: url('@/assets/images/bg-intro-mobile.svg') no-repeat center bottom;
+    background-size: cover;
+
+    img {
+        display: block;
+        width: 100%;
+        margin: -35% 0 15% 0;
+    }
 }
 
-@media screen and (min-width: 720px) {
+.container {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: $content-width;
+}
+
+.content {
+    margin: -3rem 0 5rem 0;
+    padding: 0 1rem;
+    text-align: center;
+
+    p {
+        color: var(--grayish-blue);
+        font-size: 0.8rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: $desktop-min) {
     .image {
-        background: url('@/assets/images/bg-intro-desktop.svg') no-repeat;
+        background: url('@/assets/images/bg-intro-desktop.svg') no-repeat left bottom;
+        background-size: cover;
+        padding-left: 5rem;
+
+        img {
+            margin: -15% 0 0 0;
+        }
+    }
+
+    .container {
+        flex-direction: row;
+    }
+
+    .content {
+        text-align: left;
     }
 }
 </style>

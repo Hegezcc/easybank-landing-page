@@ -7,9 +7,9 @@ import ArticleSection from './components/ArticleSection.vue';
 </script>
 
 <template>
-<Header></Header>
-<Hero></Hero>
-<ArticleSection></ArticleSection> 
-<WhySection></WhySection>
-<Footer></Footer>
+    <Header></Header>
+    <Hero></Hero>
+    <WhySection></WhySection>
+    <ArticleSection></ArticleSection> 
+    <Footer></Footer>
 </template>

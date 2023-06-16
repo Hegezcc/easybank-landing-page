@@ -1,6 +1,4 @@
 <script setup>
-import { defineProps } from 'vue';
-
 defineProps({
     title: String,
     img: String,
@@ -15,3 +13,12 @@ defineProps({
         </p>
     </div>
 </template>
+<style scoped lang="scss">
+.point {
+    margin-top: 3rem;
+}
+
+p {
+    color: var(--grayish-blue);
+}
+</style>

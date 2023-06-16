@@ -29,3 +29,6 @@ import ImageRestaurant from '@/assets/images/image-restaurant.jpg'
         </Article>
     </SectionBase>
 </template>
+
+<style scoped lang="scss">
+</style>
