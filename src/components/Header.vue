@@ -15,21 +15,23 @@ const toggleNav = () => {
 </script>
 <template>
     <header :class="{'active': navOpen}" id="header">
-        <img src="@/assets/images/logo.svg" alt="Easybank" />
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Careers</a></li>
-            </ul>
-        </nav>
-        <button class="nav-icon" @click.prevent="toggleNav">
-            <img v-if="navOpen" src="@/assets/images/icon-close.svg" alt="Close Navigation" />
-            <img v-else src="@/assets/images/icon-hamburger.svg" alt="Open Navigation" />
-        </button>
-        <InviteButton />
+        <div class="container">
+            <img src="@/assets/images/logo.svg" alt="Easybank" />
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </nav>
+            <button class="nav-icon" @click.prevent="toggleNav">
+                <img v-if="navOpen" src="@/assets/images/icon-close.svg" alt="Close Navigation" />
+                <img v-else src="@/assets/images/icon-hamburger.svg" alt="Open Navigation" />
+            </button>
+            <InviteButton />
+        </div>
     </header>
     <div class="header-space"></div>
     <div class="nav-closer" v-if="navOpen" @click.prevent="toggleNav"></div>
@@ -40,15 +42,12 @@ const toggleNav = () => {
 
 header {
     position: fixed;
-    display: flex;
     top: 0;
     left: 0;
     right: 0;
-    height: 3rem;
     z-index: 11;
     background-color: var(--white);
     color: var(--dark-blue);
-    justify-content: space-between;
 
     &::before {
         content: '';
@@ -60,19 +59,28 @@ header {
         background: var(--white);
         z-index: 12;
     }
+    .container {
+        display: flex;
+        height: 3rem;
+        justify-content: space-between;
+        max-width: $content-width;
+        margin: 0 auto;
+        
 
-    & > * {
-        z-index: 12;
-        margin: 1rem;
-    }
+        & > * {
+            z-index: 12;
+        }
 
-    img {
-        flex: 0 0 auto;
-        margin: auto 1rem;
+        img {
+            flex: 0 0 auto;
+            margin: auto 1rem;
+            height: 1rem;
+        }
     }
 
     .invite-button {
         display: none;
+        margin: 1rem;
     }
 
     .nav-icon {
@@ -126,7 +134,7 @@ header {
 
 .nav-closer {
     position: fixed;
-    z-index: 11;
+    z-index: 10;
     bottom: 0;
     right: 0;
     left: 0;
@@ -135,7 +143,10 @@ header {
 
 @media screen and (min-width: $desktop-min) {
     header {
+        .container {
         height: 5rem;
+        }
+
         .nav-icon {
             display: none;
         }
@@ -144,9 +155,9 @@ header {
             position: static;
             display: block;
             opacity: 1;
-            margin: 0;
             padding: 0;
             border-radius: 0.25rem;
+            margin: 0 1rem;
             box-shadow: none;
             z-index: 12;
 

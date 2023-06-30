@@ -61,6 +61,7 @@ import MockupImage from '@/assets/images/image-mockups.png'
         position: absolute;
         right: 0;
         z-index: 1;
+        overflow-x: clip;
 
         img {
             margin: 0;
@@ -80,6 +81,14 @@ import MockupImage from '@/assets/images/image-mockups.png'
         text-align: left;
         width: calc(50% - 5rem);
         margin: 0;
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    h1 {
+        font-size: 3rem;
     }
 }
 </style>

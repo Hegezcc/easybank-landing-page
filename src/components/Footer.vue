@@ -72,6 +72,10 @@ li {
   footer {
     display: flex;
     justify-content: space-between;
+
+    & > * {
+      flex-grow: 1;
+    }
   }
 
   .logo {
@@ -79,10 +83,9 @@ li {
   }
 
   .links {
-    display: flex;
-    height: 7rem;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
   }
 
   .bottom {
